@@ -77,10 +77,10 @@ python3.6 manage.py createsuperuser
 echo "127.0.0.1 $DOMAIN_NAME" | sudo tee -a /etc/hosts
 
 sudo systemctl daemon-reload
-sudo systemctl  restart gunicorn
-sudo systemctl enable gunicorn
+sudo systemctl  start $PROJECT_NAME
+sudo systemctl enable $PROJECT_NAME
 sudo systemctl  restart nginx
-systemctl status gunicorn
+systemctl status $PROJECT_NAME
 echo -e "\nProject is running: http://$DOMAIN_NAME/\n"
 
 
